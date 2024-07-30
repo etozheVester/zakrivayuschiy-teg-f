@@ -1,1 +1,12 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
+
+:root {
+    --main-ff: 'Inter', 'Arial', sans-serif;
+    --accent-ff: 'PressStart2P', 'Arial', sans-serif;
+    --fw-normal: 400;
+    --fw-bold: 700;
+    --accent-color: #000;
+    --bg-color: #fff;
+    --bg-image: repeating-linear-gradient(90deg, #d3d3d3, transparent 2px),
+    repeating-linear-gradient(#e7e7e7, #1a1a1a 2px);
+}

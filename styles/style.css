@@ -10,9 +10,7 @@
 ✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
-Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.
-
-*/
+Кроме этого, не меняйте HTML переключателя тем. Его разметка также гарантирует работу своего скрипта.*/
 
 .page {
   width: clamp(375px, 100%, 700px);
@@ -202,6 +200,11 @@
   transition: outline 0.3s ease;
 }
 
+.like-icon .heart {
+  transition: fill 0.1s;
+  transform-origin: center center;
+}
+
 .like-icon .core {
   fill: var(--bg-color);
   transition: fill 0.3s 0.03s;
@@ -230,10 +233,38 @@
   transition: fill 0.3s 0.05s;
 }
 
-.like-icon
+.like-icon.is-liked .core {
+  fill: var(--sparks-color);
+  transition: fill 0.3s;
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--sparks-color);
+  transition: fill 0.3s;
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--sparks-color);
+  transition: fill 0.3s 0.06s;
+}
+
+.like-icon.is-liked .heart {
+  animation-name: heart;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in;
+  animation-direction: alternate;
+  animation-delay: 0.1s;
+}
 
 .sparks {
   opacity: 0;
+}
+
+.like-icon.is-liked .sparks {
+  animation-name: sparks;
+  animation-duration: 0.3s;
+  animation-timing-function: ease-in;
+  animation-direction: alternate;
 }
 
 .card__like-button {
@@ -246,6 +277,7 @@
   font-size: 14px;
   font-weight: var(--fw-normal);
   color: var(--accent-color);
+  cursor: pointer;
 }
 
 .card__like-button:focus {
@@ -272,4 +304,20 @@
   position: relative;
   z-index: 1;
   color: #fff;
+}
+
+.footer {
+  margin-block-start: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.footer__button {
+  min-width: 335px;
+  min-height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--bg-color);
 }

@@ -22,15 +22,6 @@
     }
 }
 
-@keyframes background {
-    from {
-        transform: translateX(-100%);
-    }
-    to {
-        transform: translateX(0);
-    }
-}
-
 @keyframes heart {
     from {
         transform: scale(1);

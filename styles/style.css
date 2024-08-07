@@ -131,6 +131,7 @@
 }
 
 .main__card {
+  margin-block-end: 50px;
   padding-block-end: 22px;
   background-color: var(--bg-color);
   border: 2px solid #000;
@@ -170,6 +171,34 @@
 
 .main__card-img {
   width: clamp(371px, 100%, 696px);
+}
+
+.img-invert {
+  filter: invert(20%);
+}
+
+.img-saturate {
+  filter: saturate(250%);
+}
+
+.img-sepia {
+  filter: sepia(0.3);
+}
+
+.img-brightness {
+  filter: brightness(60%);
+}
+
+.img-blur {
+  filter: blur(6px);
+}
+
+.img-rotate {
+  filter: hue-rotate(0.3turn);
+}
+
+.img-filters {
+  filter: contrast(130%) invert(160%);
 }
 
 .main__card-text {
@@ -273,17 +302,20 @@
   animation-direction: alternate;
 }
 
+.button {
+  font-size: 14px;
+  font-family: var(--accent-ff);
+  font-weight: var(--fw-normal);
+  color: var(--accent-color);
+  cursor: pointer;
+}
+
 .card__like-button {
   position: relative;
   overflow: hidden;
   min-width: 130px;
   height: 40px;
   background-color: transparent;
-  font-family: var(--accent-ff);
-  font-size: 14px;
-  font-weight: var(--fw-normal);
-  color: var(--accent-color);
-  cursor: pointer;
 }
 
 .card__like-button:focus {
@@ -315,12 +347,14 @@
 }
 
 .footer {
-  margin-block-start: 50px;
+  margin-block-end: 100px;
   display: flex;
   justify-content: center;
 }
 
 .footer__button {
+  position: relative;
+  overflow: hidden;
   min-width: 335px;
   min-height: 55px;
   display: flex;
@@ -328,4 +362,60 @@
   align-items: center;
   gap: 8px;
   background-color: var(--bg-color);
+}
+
+.footer__button:focus {
+  outline: none;
+  box-shadow: 2px 2px 0 0 var(--accent-color);
+  transition: box-shadow 0.3s ease;
+}
+
+.footer__button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateX(-100%);
+  background-color: #000;
+  transition: transform 0.5s ease-in-out;
+}
+
+.footer__button:hover::before {
+  transform: translateX(0);
+}
+
+.dialog[open] {
+  padding: 30px;
+  display: grid;
+  align-items: center;
+  row-gap: 30px;
+  column-gap: 20px;
+  grid-template-columns: 39px 234px;
+}
+
+.dialog[open]::backdrop {
+  background-color: var(--accent-color);
+  opacity: 0.75;
+}
+
+.dialog-text {
+  font-size: 14px;
+  font-family: var(--accent-ff);
+  line-height: 21px;
+  text-transform: uppercase;
+}
+
+.dialog-button {
+  text-transform: uppercase;
+  min-width: 293px;
+  min-height: 38px;
+  background: transparent;
+}
+
+.floppy {
+  fill: var(--secondary-color);
+  z-index: 1;
+  mix-blend-mode: difference;
 }

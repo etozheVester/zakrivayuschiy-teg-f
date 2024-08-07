@@ -7,10 +7,19 @@
 
 :root.theme-dark {
     --accent-color: #00cc14;
+    --secondary-color: #00cc14;
     --bg-color: #000;
+    --bg-image: repeating-linear-gradient(90deg, #000, transparent 2px),
+    repeating-linear-gradient(#007f0c, #004306 2px);
+    --contour-color: #00cc14;
 }
 
 :root.theme-white {
     --accent-color: #000;
+    --secondary-color: #fff;
     --bg-color: #fff;
+    --bg-image: repeating-linear-gradient(90deg, #d3d3d3, transparent 2px),
+    repeating-linear-gradient(#e7e7e7, #1a1a1a 2px);
+    --contour-color: #000;
+    --sparks-color: #ff0000;
 }

@@ -25,14 +25,14 @@
 }
 
 .header {
-  margin-block-start: 100px;
+  margin-block-start: 102px;
   padding-block-start: clamp(7.5rem, 7.1479rem + 1.5023vw, 8.5rem);
   display: grid;
   justify-content: center;
   justify-items: center;
   font-family: var(--accent-ff);
   background-color: var(--bg-color);
-  border: 2px solid #000;
+  border: 2px solid var(--accent-color);
 }
 
 .header__title {
@@ -52,14 +52,13 @@
 
 .header__theme-menu {
   padding-block-start: 25px;
-  margin-block-end: 15px;
+  margin-block-end: 20px;
 }
 
 .theme-menu__list {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  row-gap: 14px;
+  padding-inline-start: 17px;
+  display: grid;
+  row-gap: 12px;
 }
 
 .theme-menu__item {
@@ -125,16 +124,25 @@
   width: 100%;
 } 
 
-
 .main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
   padding-block-start: 100px;
+  padding-block-end: 100px;
+}
+
+.main__cards {
+  display: flex;
+  flex-direction: column;
+  gap: 49px;
 }
 
 .main__card {
-  margin-block-end: 50px;
   padding-block-end: 22px;
   background-color: var(--bg-color);
-  border: 2px solid #000;
+  border: 2px solid var(--accent-color);
 }
 
 .main__card-title {
@@ -146,6 +154,8 @@
 .main__card-picture {
   display: block;
   position: relative;
+  border-top: 2px solid var(--accent-color);
+  border-bottom: 2px solid var(--accent-color);
 }
 
 .card__picture-label {
@@ -159,18 +169,19 @@
   font-family: var(--accent-ff);
   background-blend-mode: hard-light;
   opacity: 0.5;
-  text-shadow: 1px 1px #fff;
+  text-shadow: 1px 1px var(--label-shadow);
 }
 
-@supports ((text-stroke: 1px #fff) or (-webkit-text-stroke: 1px #fff)) {
+@supports ((text-stroke: 1px var(--label-shadow)) or (-webkit-text-stroke: 1px var(--label-shadow))) {
   .card__picture-label {
-    -webkit-text-stroke: 1px #fff;
+    -webkit-text-stroke: 1px var(--label-shadow);
     text-shadow: none;
   }
 }
 
 .main__card-img {
   width: clamp(371px, 100%, 696px);
+  height: 100%;
 }
 
 .img-invert {
@@ -202,11 +213,12 @@
 }
 
 .main__card-text {
-  padding: 25px;
+  padding: 19px 25px 0;
   font-size: 18px;
 }
 
 .main__card-note {
+  padding-block-start: 27px;
   padding-inline-start: 25px;
   font-size: 18px;
 }
@@ -308,6 +320,7 @@
   font-weight: var(--fw-normal);
   color: var(--accent-color);
   cursor: pointer;
+  border: 2px solid var(--accent-color);
 }
 
 .card__like-button {
@@ -346,13 +359,7 @@
   mix-blend-mode: difference;
 }
 
-.footer {
-  margin-block-end: 100px;
-  display: flex;
-  justify-content: center;
-}
-
-.footer__button {
+.save__button {
   position: relative;
   overflow: hidden;
   min-width: 335px;
@@ -364,13 +371,13 @@
   background-color: var(--bg-color);
 }
 
-.footer__button:focus {
+.save__button:focus {
   outline: none;
   box-shadow: 2px 2px 0 0 var(--accent-color);
   transition: box-shadow 0.3s ease;
 }
 
-.footer__button::before {
+.save__button::before {
   content: '';
   position: absolute;
   top: 0;
@@ -382,7 +389,7 @@
   transition: transform 0.5s ease-in-out;
 }
 
-.footer__button:hover::before {
+.save__button:hover::before {
   transform: translateX(0);
 }
 
@@ -393,10 +400,12 @@
   row-gap: 30px;
   column-gap: 20px;
   grid-template-columns: 39px 234px;
+  background-color: var(--bg-color);
+  border: 2px solid var(--accent-color) ;
 }
 
 .dialog[open]::backdrop {
-  background-color: var(--accent-color);
+  background-color: var(--backdrop-color);
   opacity: 0.75;
 }
 
@@ -404,6 +413,7 @@
   font-size: 14px;
   font-family: var(--accent-ff);
   line-height: 21px;
+  color: var(--accent-color);
   text-transform: uppercase;
 }
 
@@ -415,7 +425,42 @@
 }
 
 .floppy {
-  fill: var(--secondary-color);
   z-index: 1;
+  color: var(--secondary-color);
   mix-blend-mode: difference;
+}
+
+@media (width <= 375px) {
+
+  .main__card-title {
+    padding-inline-end: 3px;
+  }
+
+  .main__card-note {
+    padding: 27px 6px 0 25px;
+  }
+
+  .card__picture-label {
+    top: 21px;
+    right: 11px;
+  }
+
+  .save__button {
+    flex-direction: column;
+    min-width: 306px;
+    min-height: 84px;
+  }
+
+  .button__floppy {
+    height: 28px;
+    width: 28px;
+}
+
+  .dialog[open] {
+    padding: 38px;
+  }
+
+  .dialog-button {
+    min-width: 257px;
+  }
 }

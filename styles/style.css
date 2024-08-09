@@ -24,6 +24,7 @@
   background-color: var(--bg-color);
   font-family: var(--main-ff);
   color: var(--accent-color);
+  font-variation-settings: var(--fw-normal);
 }
 
 @supports (font-variation-settings: normal) {

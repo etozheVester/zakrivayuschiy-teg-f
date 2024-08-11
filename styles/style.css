@@ -360,8 +360,6 @@
 }
 
 .card__like-button {
-  position: relative;
-  overflow: hidden;
   min-width: 130px;
   height: 40px;
   background-color: transparent;

@@ -28,6 +28,8 @@
     repeating-linear-gradient(#e7e7e7, #1a1a1a);
     --contour-color: #000;
     --sparks-color: #ff0000;
+    --fw-normal: 400;
+    --fw-bold: 700;
 }
 
 @media (prefers-color-scheme: dark) {

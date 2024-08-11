@@ -24,6 +24,7 @@
   background-color: var(--bg-color);
   font-family: var(--main-ff);
   color: var(--accent-color);
+  font-variation-settings: "wght" var(--fw-normal);
 }
 
 .header {
@@ -37,14 +38,14 @@
   border: 2px solid var(--accent-color);
 }
 
-.header__title {
+.header__logo {
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
   line-height: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
   font-weight: var(--fw-normal);
   text-transform: uppercase;
 }
 
-.header__subtitle {
+.header__title {
   padding-block-start: 20px;
   font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
   line-height: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
@@ -75,9 +76,9 @@
   border: none;
   text-transform: uppercase;
   cursor: pointer;
+  transition: opacity 0.3s ease;
 }
 
-.theme-menu__button:active,
 .theme-menu__button:hover {
   opacity: 0.6;
   transition: opacity 0.3s ease;
@@ -86,7 +87,7 @@
 .theme-menu__button:disabled {
   opacity: 0.6;
   pointer-events: none;
-  transition: opacity 0.3 ease;
+  transition: opacity 0.3s ease;
 }
 
 .theme-menu__button:disabled::before {
@@ -142,7 +143,6 @@
 }
 
 .main__card {
-  position: relative;
   padding-block-end: 22px;
   background-color: var(--bg-color);
   border: 2px solid var(--accent-color);
@@ -152,7 +152,11 @@
   padding: 6px 0 5px 10px;
   font-size: 18px;
   line-height: 21.78px;
-  font-weight: var(--fw-bold);
+  font-variation-settings: "wght" var(--fw-bold);
+}
+
+.main__card-image {
+  position: relative;
 }
 
 .main__card-picture {
@@ -163,8 +167,9 @@
 
 .card__picture-label {
   position: absolute;
-  top: 59px;
+  top: 26px;
   right: 25px;
+  z-index: 1;
   font-size: 14px;
   line-height: 14px;
   font-weight: var(--fw-normal);
@@ -183,6 +188,7 @@
 }
 
 .main__card-img {
+  display: block;
   width: clamp(371px, 100%, 696px);
   height: 100%;
 }
@@ -215,14 +221,14 @@
   filter: contrast(130%) invert(160%);
 }
 
-.main__card-text {
-  padding: 19px 25px 0;
-  font-size: 18px;
+.main__card-info {
+  padding: 25px 25px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
 }
 
-.main__card-note {
-  padding-block-start: 27px;
-  padding-inline-start: 25px;
+.main__card-text {
   font-size: 18px;
 }
 
@@ -318,12 +324,39 @@
 }
 
 .button {
+  position: relative;
+  overflow: hidden;
   font-size: 14px;
   font-family: var(--accent-ff);
   font-weight: var(--fw-normal);
   color: var(--accent-color);
   cursor: pointer;
   border: 2px solid var(--accent-color);
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:focus-visible {
+  box-shadow: 2px 2px 0 0 var(--accent-color);
+  transition: box-shadow 0.3s ease;
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateX(-100%);
+  background-color: var(--accent-color);
+  transition: transform 0.5s ease-in-out;
+}
+
+.button:hover::before {
+  transform: translateX(0);
 }
 
 .card__like-button {
@@ -334,28 +367,6 @@
   background-color: transparent;
 }
 
-.card__like-button:focus {
-  outline: none;
-  box-shadow: 2px 2px 0 0 var(--accent-color);
-  transition: box-shadow 0.3s ease;
-}
-
-.card__like-button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  transform: translateX(-100%);
-  background-color: #000;
-  transition: transform 0.5s ease-in-out;
-}
-
-.card__like-button:hover::before {
-  transform: translateX(0);
-}
-
 .button__text {
   position: relative;
   color: var(--secondary-color);
@@ -363,8 +374,6 @@
 }
 
 .save__button {
-  position: relative;
-  overflow: hidden;
   min-width: 335px;
   min-height: 55px;
   display: flex;
@@ -372,28 +381,6 @@
   align-items: center;
   gap: 8px;
   background-color: var(--bg-color);
-}
-
-.save__button:focus {
-  outline: none;
-  box-shadow: 2px 2px 0 0 var(--accent-color);
-  transition: box-shadow 0.3s ease;
-}
-
-.save__button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  transform: translateX(-100%);
-  background-color: #000;
-  transition: transform 0.5s ease-in-out;
-}
-
-.save__button:hover::before {
-  transform: translateX(0);
 }
 
 .dialog[open] {
@@ -447,12 +434,8 @@
     padding-inline-end: 12px;
   }
 
-  .main__card-note {
-    padding: 27px 6px 0 25px;
-  }
-
   .card__picture-label {
-    top: 78px;
+    top: 24px;
     right: 11px;
   }
 

@@ -10,9 +10,12 @@
     --secondary-color: #00cc14;
     --bg-color: #000;
     --label-shadow: #000;
-    --bg-image: repeating-linear-gradient(90deg, #000, transparent 2px),
-    repeating-linear-gradient(#007f0c, #004306 2px);
+    --bg-image: repeating-linear-gradient(90deg, #000 0 2px, transparent 2px 4px),
+    repeating-linear-gradient(#000 0 2px, transparent 2px 4px),
+    repeating-linear-gradient(#007f0c, #004306);
     --contour-color: #00cc14;
+    --fw-normal: 465;
+    --fw-bold: 785;
 }
 
 :root.theme-light {
@@ -20,8 +23,9 @@
     --secondary-color: #fff;
     --bg-color: #fff;
     --label-shadow: #fff;
-    --bg-image: repeating-linear-gradient(90deg, #d3d3d3, transparent 2px),
-    repeating-linear-gradient(#e7e7e7, #1a1a1a 2px);
+    --bg-image: repeating-linear-gradient(90deg, #d3d3d3 0 2px, transparent 2px 4px),
+    repeating-linear-gradient(#d3d3d3 0 2px, transparent 2px 4px),
+    repeating-linear-gradient(#e7e7e7, #1a1a1a);
     --contour-color: #000;
     --sparks-color: #ff0000;
 }
@@ -32,8 +36,11 @@
         --secondary-color: #00cc14;
         --bg-color: #000;
         --label-shadow: #000;
-        --bg-image: repeating-linear-gradient(90deg, #000, transparent 2px),
-        repeating-linear-gradient(#007f0c, #004306 2px);
+        --bg-image: repeating-linear-gradient(90deg, #000 0 2px, transparent 2px 4px),
+        repeating-linear-gradient(#000 0 2px, transparent 2px 4px),
+        repeating-linear-gradient(#007f0c, #004306);
         --contour-color: #00cc14;
+        --fw-normal: 465;
+        --fw-bold: 785;
     }
 }

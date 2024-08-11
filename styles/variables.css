@@ -9,8 +9,9 @@
     --secondary-color: #fff;
     --bg-color: #fff;
     --label-shadow: #fff;
-    --bg-image: repeating-linear-gradient(90deg, #d3d3d3, transparent 2px),
-    repeating-linear-gradient(#e7e7e7, #1a1a1a 2px);
+    --bg-image: repeating-linear-gradient(90deg, #d3d3d3 0 2px, transparent 2px 4px),
+    repeating-linear-gradient(#d3d3d3 0 2px, transparent 2px 4px),
+    repeating-linear-gradient(#e7e7e7, #1a1a1a);
     --contour-color: #000;
     --sparks-color: #ff0000;
     --backdrop-color: #000;

@@ -41,7 +41,7 @@
 .header__logo {
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
   line-height: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
-  font-weight: var(--fw-normal);
+  font-weight: 400;
   text-transform: uppercase;
 }
 
@@ -49,7 +49,7 @@
   padding-block-start: 20px;
   font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
   line-height: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
-  font-weight: var(--fw-normal);
+  font-weight: 400;
   text-transform: uppercase;
 }
 
@@ -139,7 +139,7 @@
 .main__cards {
   display: flex;
   flex-direction: column;
-  gap: 49px;
+  gap: 48px;
 }
 
 .main__card {
@@ -172,7 +172,7 @@
   z-index: 1;
   font-size: 14px;
   line-height: 14px;
-  font-weight: var(--fw-normal);
+  font-weight: 400;
   color: var(--accent-color);
   font-family: var(--accent-ff);
   background-blend-mode: hard-light;
@@ -225,7 +225,7 @@
   padding: 25px 25px 0;
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 26px;
 }
 
 .main__card-text {
@@ -328,7 +328,7 @@
   overflow: hidden;
   font-size: 14px;
   font-family: var(--accent-ff);
-  font-weight: var(--fw-normal);
+  font-weight: 400;
   color: var(--accent-color);
   cursor: pointer;
   border: 2px solid var(--accent-color);
